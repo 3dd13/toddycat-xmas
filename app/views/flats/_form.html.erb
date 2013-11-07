@@ -1,4 +1,6 @@
-<%= form_for(@flat) do |f| %>
+<!-- floor_flat_path(@floor, @flat) -->
+
+<%= form_for [@floor, @flat] do |f| %>
   <% if @flat.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@flat.errors.count, "error") %> prohibited this flat from being saved:</h2>

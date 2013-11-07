@@ -1,5 +1,5 @@
 ToddyCat::Application.routes.draw do
-  
+      
   resources :floors do
     resources :flats
   end

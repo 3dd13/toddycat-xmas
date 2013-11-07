@@ -1,10 +1,9 @@
 <h1>Listing floors</h1>
 
-<table>
+<table class="table table-condensed table-striped table-bordered">
   <thead>
     <tr>
       <th>Name</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -14,9 +13,12 @@
     <% @floors.each do |floor| %>
       <tr>
         <td><%= floor.name %></td>
-        <td><%= link_to 'Show', floor %></td>
-        <td><%= link_to 'Edit', edit_floor_path(floor) %></td>
-        <td><%= link_to 'Destroy', floor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Show Flats", floor_flats_url(floor), class: "btn btn-primary" %>
+        <td>
+          <%= link_to 'Show', floor, class: "btn btn-default" %>
+          <%= link_to 'Edit', edit_floor_path(floor), class: "btn btn-default" %>
+          <%= link_to 'Destroy', floor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
