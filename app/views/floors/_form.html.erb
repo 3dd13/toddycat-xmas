@@ -15,6 +15,17 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  
+  <div style="border: solid 1px #963">
+    <%= f.fields_for :flats, @floor.flats do |flat_form| %>
+      <%= render 'flat_fields', :f => flat_form %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association 'add flat', f, :flats, class: "btn" %>
+    </div>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
