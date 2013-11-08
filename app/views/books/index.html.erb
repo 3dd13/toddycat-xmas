@@ -16,9 +16,9 @@
       <tr>
         <td><%= book.bookshelf.name %></td>
         <td><%= book.title %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', bookshelf_book_path(@bookshelf, book) %></td>
+        <td><%= link_to 'Edit', edit_bookshelf_book_path(@bookshelf, book) %></td>
+        <td><%= link_to 'Destroy', bookshelf_book_path(@bookshelf, book), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to 'New Book', new_bookshelf_book_path(@bookshelf) %>

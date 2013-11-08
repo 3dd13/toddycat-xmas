@@ -13,6 +13,9 @@ class BookshelvesController < ApplicationController
   # GET /bookshelves/new
   def new
     @bookshelf = Bookshelf.new
+    3.times {
+      @bookshelf.books.build      
+    }
   end
 
   # GET /bookshelves/1/edit
@@ -53,6 +56,6 @@ class BookshelvesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def bookshelf_params
-      params.require(:bookshelf).permit(:name)
+      params.require(:bookshelf).permit(:name, :books_attributes => [:id, :title])
     end
 end

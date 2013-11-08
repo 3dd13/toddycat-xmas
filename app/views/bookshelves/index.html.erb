@@ -14,6 +14,7 @@
     <% @bookshelves.each do |bookshelf| %>
       <tr>
         <td><%= bookshelf.name %></td>
+        <td><%= link_to "Show Books", bookshelf_books_path(bookshelf), class: "btn btn-primary" %></td>        
         <td><%= link_to 'Show', bookshelf %></td>
         <td><%= link_to 'Edit', edit_bookshelf_path(bookshelf) %></td>
         <td><%= link_to 'Destroy', bookshelf, method: :delete, data: { confirm: 'Are you sure?' } %></td>

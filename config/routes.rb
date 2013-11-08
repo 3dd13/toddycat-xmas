@@ -1,8 +1,8 @@
 ToddyCat::Application.routes.draw do
-      
-  resources :books
 
-  resources :bookshelves
+  resources :bookshelves do
+    resources :books
+  end
 
   resources :floors do
     resources :flats

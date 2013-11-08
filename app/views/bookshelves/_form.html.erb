@@ -15,6 +15,14 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  
+  <%= f.fields_for :books, @bookshelf.books do |book_form| %>
+    <div class="field">
+      <%= book_form.label :title, "Book Title" %><br>
+      <%= book_form.text_field :title %>
+    </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
