@@ -1,13 +1,15 @@
 class BooksController < ApplicationController
+  before_action :set_bookshelf
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
   def index
-    @books = Book.all
+    @books = @bookshelf.books.all
   end
 
   # GET /books/1
   def show
+    
   end
 
   # GET /books/new
@@ -24,7 +26,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to @book, notice: 'Book was successfully created.'
+      redirect_to bookshelf_books_path(@bookshelf), notice: 'Book was successfully created.'
     else
       render action: 'new'
     end
@@ -33,7 +35,7 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   def update
     if @book.update(book_params)
-      redirect_to @book, notice: 'Book was successfully updated.'
+      redirect_to bookshelf_books_path(@bookshelf), notice: 'Book was successfully updated.'
     else
       render action: 'edit'
     end
@@ -42,13 +44,17 @@ class BooksController < ApplicationController
   # DELETE /books/1
   def destroy
     @book.destroy
-    redirect_to books_url, notice: 'Book was successfully destroyed.'
+    redirect_to bookshelf_books_url(@bookshelf), notice: 'Book was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_bookshelf
+      @bookshelf = Bookshelf.find(params[:bookshelf_id])
+    end
+
     def set_book
-      @book = Book.find(params[:id])
+      @book = @bookshelf.books.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
