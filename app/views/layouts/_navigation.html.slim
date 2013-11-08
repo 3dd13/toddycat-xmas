@@ -11,6 +11,12 @@
         li
           = link_to "Floors", floors_url
           
+      ul.nav.navbar-nav
+        li
+          = link_to "Bookshelves", bookshelves_url
+        li
+          = link_to "Books", books_url
+          
       ul.nav.navbar-nav.pull-right
         li
           = link_to "Sign out", logout_url, method: :delete, class: "logout-link"
